@@ -7,7 +7,7 @@ $(document).ready(onReady);
 
 let fungusHP = 100;
 let heroAP = 100;
-
+let regenerate = false;
 
 function onReady() {
 
@@ -51,15 +51,32 @@ function render() {
     $('.ap-text').html(heroAP);
     $('.hp-text').html(fungusHP);
 
+    $('#ap-meter').val(heroAP);
+    $('#hp-meter').val(fungusHP);
+
     if (fungusHP <= 0) {
-        $('#freaky-fungus').removeClass('walk');
-        $('#freaky-fungus').addClass('dead');
+        $('.freaky-fungus').removeClass('walk');
+        $('.freaky-fungus').addClass('dead');
     };
     if (heroAP <= 0) {
-        $('#freaky-fungus').removeClass('walk');
-        $('#freaky-fungus').addClass('jump');
+        $('.freaky-fungus').removeClass('walk');
+        $('.freaky-fungus').addClass('jump');
         $('button').prop('disabled', true);
     };
 
+    if (fungusHP < 50 && fungusHP > 0 && !regenerate) {
+        setInterval(regenerateFn, 1000)
+    };
 
+    if (fungusHP >= 100) {
+        fungusHP = 100;
+    };
+}
+
+function regenerateFn() {
+    regenerate = true;
+    fungusHP++;
+    render();
+    // regenerate=true;
+    // fungusHP++;
 }
