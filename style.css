@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     height: 100%;
 }
@@ -23,17 +24,21 @@ progress {
     margin: 0px auto -30px auto;
     display: block;
 }
+
 .attacks progress {
     margin-top: -60px;
 }
+
 .enemy progress::-webkit-progress-value {
     background: red;
 }
+
 .attacks progress::-webkit-progress-value {
     background: green;
 }
 
-.hp-text, .ap-text {
+.hp-text,
+.ap-text {
     width: 100%;
     color: white;
     font-family: sans-serif;
@@ -43,6 +48,7 @@ progress {
     font-size: 20px;
     text-shadow: 0px 0px 9px #ff0000;
 }
+
 .attacks .ap-text {
     margin-top: -100px;
     text-shadow: 0px 0px 9px #00ff00;
@@ -50,8 +56,8 @@ progress {
 
 
 .freaky-fungus {
-	width: 462px;
-	height: 588px;
+    width: 462px;
+    height: 588px;
 
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -62,9 +68,15 @@ progress {
     animation-name: idle;
     animation-timing-function: steps(8);
 }
+
 @keyframes idle {
-  from { background-position: -21px; }
-  to { background-position: -4872px; }
+    from {
+        background-position: -21px;
+    }
+
+    to {
+        background-position: -4872px;
+    }
 }
 
 .freaky-fungus.walk {
@@ -72,9 +84,15 @@ progress {
     animation-name: walk;
     animation-timing-function: steps(6);
 }
+
 @keyframes walk {
-  from { background-position: -21px; }
-  to { background-position: -3654px; }
+    from {
+        background-position: -21px;
+    }
+
+    to {
+        background-position: -3654px;
+    }
 }
 
 .freaky-fungus.hurt {
@@ -82,9 +100,15 @@ progress {
     animation-name: hurt;
     animation-timing-function: steps(5);
 }
+
 @keyframes hurt {
-  from { background-position: -21px; }
-  to { background-position: -3150px; }
+    from {
+        background-position: -21px;
+    }
+
+    to {
+        background-position: -3150px;
+    }
 }
 
 .freaky-fungus.dead {
@@ -94,10 +118,16 @@ progress {
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
+
 @keyframes die {
-  from { background-position: -21px; }
-  /* to { background-position: -3738px; } */
-  to { background-position: -3150px; }
+    from {
+        background-position: -21px;
+    }
+
+    /* to { background-position: -3738px; } */
+    to {
+        background-position: -3150px;
+    }
 }
 
 .freaky-fungus.spawn {
@@ -105,9 +135,15 @@ progress {
     animation-name: spawn;
     animation-timing-function: steps(4);
 }
+
 @keyframes spawn {
-  from { background-position: -21px; }
-  to { background-position: -2436px; }
+    from {
+        background-position: -21px;
+    }
+
+    to {
+        background-position: -2436px;
+    }
 }
 
 
@@ -115,12 +151,12 @@ progress {
 /* Make the screen shake when you click on it
   (for attacks)
  */
-body:has( .attacks button:active:not(:disabled)) {
+body:has(.attacks button:active:not(:disabled)) {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
 
-body:has( .freaky-fungus.dead) {
+body:has(.freaky-fungus.dead) {
     animation: shake 0.5s;
     animation-delay: 1.8s;
     animation-iteration-count: 3;
@@ -128,17 +164,49 @@ body:has( .freaky-fungus.dead) {
 
 /* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
 
 .attacks {
@@ -160,6 +228,7 @@ body:has( .freaky-fungus.dead) {
     background-size: cover;
     cursor: pointer;
 }
+
 .attack-btn[disabled] {
     cursor: not-allowed;
 }
@@ -174,15 +243,18 @@ body:has( .freaky-fungus.dead) {
     left: 0;
 }
 
-.attack-btn.arcane-sceptre {
+.attack-btn.arcaneSceptre {
     background-image: url('./images/arcane-sceptre.png');
 }
+
 .attack-btn.entangle {
     background-image: url('./images/entangle-3.png');
 }
-.attack-btn.dragon-blade {
+
+.attack-btn.dragonBlade {
     background-image: url('./images/dragon-blade-3.png');
 }
-.attack-btn.star-fire {
+
+.attack-btn.starFire {
     background-image: url('./images/star-fire.png');
 }
