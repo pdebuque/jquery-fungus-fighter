@@ -18,6 +18,7 @@ function onReady() {
     $('.entangle').on('click', entangle);
     $('.dragon-blade').on('click', dragonBlade);
     $('.star-fire').on('click', starFire);
+
     // 🧠 Remember
     // - Handle events that ->
     // - Updates state which is ->
@@ -49,4 +50,16 @@ function starFire() {
 function render() {
     $('.ap-text').html(heroAP);
     $('.hp-text').html(fungusHP);
+
+    if (fungusHP <= 0) {
+        $('#freaky-fungus').removeClass('walk');
+        $('#freaky-fungus').addClass('dead');
+    };
+    if (heroAP <= 0) {
+        $('#freaky-fungus').removeClass('walk');
+        $('#freaky-fungus').addClass('jump');
+        $('button').prop('disabled', true);
+    };
+
+
 }
