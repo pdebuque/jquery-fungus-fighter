@@ -6,7 +6,19 @@ $(document).ready(onReady);
 // let fungusHP = 100;
 
 let fungusHP = 100;
+if (fungusHP < 0) {
+    fungusHP = 0;
+}
+
+if (fungusHP > 100) {
+    fungusHP = 100;
+}
+
 let heroAP = 100;
+if (heroAP < 0) {
+    heroAP = 0;
+}
+
 let regenerate = false;
 
 const attacks = {
@@ -53,7 +65,6 @@ function handleAttack() {
     fungusHP -= attackVals.damage;
     heroAP -= attackVals.cost;
     render();
-
 }
 
 // function arcaneSceptre() {
@@ -89,6 +100,7 @@ function render() {
         $('.freaky-fungus').removeClass('walk');
         $('.freaky-fungus').addClass('dead');
     };
+
     if (heroAP <= 0) {
         $('.freaky-fungus').removeClass('walk');
         $('.freaky-fungus').addClass('jump');
@@ -97,10 +109,6 @@ function render() {
 
     if (fungusHP < 50 && fungusHP > 0 && !regenerate) {
         setInterval(regenerateFn, 1000)
-    };
-
-    if (fungusHP >= 100) {
-        fungusHP = 100;
     };
 }
 
